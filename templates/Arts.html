@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Art Gallery | ArtWorks</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/Arts1.css')}}"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<style >
+  body{
+    background: rgb(31,30,46);
+background: linear-gradient(90deg, rgba(31,30,46,1) 0%, rgba(27,27,119,1) 42%, rgba(32,42,43,1) 100%);
+  }
+.a {
+  height:100px;
+  margin:0 auto;
+  position: relative;
+}
+
+i {
+  cursor:pointer;
+  padding:10px 12px 8px;
+  background:#fff;
+  border-radius:50%;
+  display:inline-block;
+  margin:0 0 15px;
+  color:#aaa;
+  transition:.2s;
+}
+
+i:hover {
+  color:#666;
+}
+
+i:before {
+  font-family:fontawesome;
+  content:'\f004';
+  font-style:normal;
+}
+
+span {
+  position: absolute;
+  bottom:70px;
+  left:0;
+  right:0;
+  visibility: hidden;
+  transition:.6s;
+  z-index:-2;
+  font-size:2px;
+  color:transparent;
+  font-weight:400;
+}
+
+i.press {
+  animation: size .4s;
+  color:#e23b3b;
+}
+
+span.press {
+  bottom:120px;
+  font-size:14px;
+  visibility:visible;
+  animation: fade 1s;
+}
+
+
+@keyframes size {
+  0% {padding:10px 12px 8px;}
+  50% {padding:14px 16px 12px;  
+    margin-top:-4px;}
+  100% {padding:10px 12px 8px;}
+}  
+  
+</style>
+</head>
+<body>
+<h4 style="color: white;">Art Gallery</h4>
+
+       <div class="table-header">
+    <form action='/Home'>
+      <button style="position: absolute; top: 10%; left: 50%;" class="add-another btn btn-success">Home</button>
+      </form>
+    </div>
+    <div id="cart">
+      <i style="font-size: 35px;" class="fab fa-opencart"></i>
+      <h3 id="price">0</h3>
+      
+    </div>
+    
+
+    <br>
+   
+    <div class="dropdown" style="position: fixed; z-index: 9999;">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Years
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#section1">1401-1500</a>
+        <a class="dropdown-item" href="#section2">1501-1600</a>
+        <a class="dropdown-item" href="#section3">1801-1900</a>
+        <a class="dropdown-item" href="#section4">1901-1960</a>
+        <a class="dropdown-item" href="#section5">1961-2021</a>
+        <!-- <a class="dropdown-item" href="#">1701-1800</a> -->
+      </div>
+    </div>
+
+    <div class="mukesh 00" id="section1" style="height: 100vh;">
+
+    </div>
+    <div class="mukesh 01" id="section2" style="height: 100vh;">
+
+    </div>
+    <div class="mukesh 01" id="section3" style="height: 100vh;">
+
+    </div>
+    <div class="mukesh 01" id="section4" style="height: 100vh;">
+ 
+    </div>
+    <div class="mukesh 01" id="section5" style="height: 100vh;">
+
+    </div>
+    <div id="extra"></div>
+   
+<script>
+  const section1=document.getElementById('section1');
+  const section2=document.getElementById('section2');
+  const section3=document.getElementById('section3');
+  const section4=document.getElementById('section4');
+  const section5=document.getElementById('section5');
+
+
+    var y1 = [`{{ y1[0][5] }}`];
+    var y2 = [`{{ y1[1][5] }}`];
+    
+    var y3 = [`{{ y2[0][5] }}`];
+    var y4 = [`{{ y2[1][5] }}`];
+    var y5 = [`{{ y2[2][5] }}`];
+    var y6 = [`{{ y2[3][5] }}`];
+
+    var y7 = [`{{ y3[0][5] }}`];
+    var y8 = [`{{ y3[1][5] }}`];
+
+    var y9 = [`{{ y4[0][5] }}`];
+    var y10 = [`{{ y4[1][5] }}`];
+    var y11 = [`{{ y4[2][5] }}`];
+
+    var y12 = [`{{ y5[0][5] }}`];
+    var y13 = [`{{ y5[1][5] }}`];
+    var y14 = [`{{ y5[2][5] }}`];
+    var y15 = [`{{ y5[3][5] }}`];
+
+  
+
+
+    //
+
+  
+    console.log(y1)
+  section1.innerHTML+=`
+  <div class="image" id="y1" style="background: url('${y1[0]}')  center; background-repeat: no-repeat;  background-color: #A6B4BE;">
+    <h1>{{y1[0][0]}}</h1>
+      <h2>{{y1[0][1]}}</h2>
+      <h2>{{y1[0][2]}}</h2>
+      <h2>{{y1[0][3]}}</h2></div>
+  <div class="image" id="y2" style="background: url('${y2[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y1[1][0]}}</h1>
+      <h2>{{y1[1][1]}}</h2>
+      <h2>{{y1[1][2]}}</h2> 
+      <h2>{{y1[1][3]}}</h2></div>
+  `;
+  section2.innerHTML+=`
+  <div class="image" id="y3" style="background: url('${y3[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y2[0][0]}}</h1>
+      <h2>{{y2[0][1]}}</h2>
+      <h2>{{y2[0][2]}}</h2>
+      <h2>{{y2[0][3]}}</h2></div>
+  <div class="image" id="y4" style="background: url('${y4[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y2[1][0]}}</h1>
+      <h2>{{y2[1][1]}}</h2>
+      <h2>{{y2[1][2]}}</h2>
+      <h2>{{y2[1][3]}}</h2></div>
+      <div class="image" id="y5" style="background: url('${y5[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y2[2][0]}}</h1>
+      <h2>{{y2[2][1]}}</h2>
+      <h2>{{y2[2][2]}}</h2>
+      <h2>{{y2[2][3]}}</h2></div>
+  <div class="image" id="y6" style="background: url('${y6[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y2[3][0]}}</h1>
+      <h2>{{y2[3][1]}}</h2>
+      <h2>{{y2[3][2]}}</h2>
+      <h2>{{y2[3][3]}}</h2></div>
+  `;
+  section3.innerHTML+=`
+  <div class="image" id="y7" style="background: url('${y7[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y3[0][0]}}</h1>
+      <h2>{{y3[0][1]}}</h2>
+      <h2>{{y3[0][2]}}</h2>
+      <h2>{{y3[0][3]}}</h2></div>
+  <div class="image" id="y8" style="background: url('${y8[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y3[1][0]}}</h1>
+      <h2>{{y3[1][1]}}</h2>
+      <h2>{{y3[1][2]}}</h2>
+      <h2>{{y3[1][3]}}</h2></div>
+  `;
+  section4.innerHTML+=`
+  <div class="image" id="y9" style="background: url('${y9[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y4[0][0]}}</h1>
+      <h2>{{y4[0][1]}}</h2>
+      <h2>{{y4[0][2]}}</h2>
+      <h2>{{y4[0][3]}}</h2></div>
+  <div class="image" id="y10" style="background: url('${y10[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y4[1][0]}}</h1>
+      <h2>{{y4[1][1]}}</h2>
+      <h2>{{y4[1][2]}}</h2>
+      <h2>{{y4[1][3]}}</h2></div>
+  <div class="image" id="y11" style="background: url('${y11[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y4[2][0]}}</h1>
+      <h2>{{y4[2][1]}}</h2>
+      <h2>{{y4[2][2]}}</h2>
+      <h2>{{y4[2][3]}}</h2></div>
+  `;
+  section5.innerHTML+=`
+  <div class="image" id="y12" style="background: url('${y12[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y5[0][0]}}</h1>
+      <h2>{{y5[0][1]}}</h2>
+      <h2>{{y5[0][2]}}</h2>
+      <h2>{{y5[0][3]}}</h2></div>
+  <div class="image" id="y13" style="background: url('${y13[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y5[1][0]}}</h1>
+      <h2>{{y5[1][1]}}</h2>
+      <h2>{{y5[1][2]}}</h2>
+      <h2>{{y5[1][3]}}</h2></div>
+  <div class="image" id="y14" style="background: url('${y14[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y5[2][0]}}</h1>
+      <h2>{{y5[2][1]}}</h2>
+      <h2>{{y5[2][2]}}</h2>
+      <h2>{{y5[2][3]}}</h2></div>
+  <div class="image" id="y15" style="background: url('${y15[0]}')  center; background-repeat: no-repeat; background-color: #A6B4BE;">
+    <h1>{{y5[3][0]}}</h1>
+      <h2>{{y5[3][1]}}</h2>
+      <h2>{{y5[3][2]}}</h2>
+      <h2>{{y5[3][3]}}</h2></div>
+  `;
+
+  //
+
+    //
+   const p1=document.getElementById('y1');
+   const p2=document.getElementById('y2');
+    const p3=document.getElementById('y3');
+   const p4=document.getElementById('y4');
+    const p5=document.getElementById('y5');
+    const p6=document.getElementById('y6');
+    const p7=document.getElementById('y7');
+    const p8=document.getElementById('y8');
+    const p9=document.getElementById('y9');
+    const p10=document.getElementById('y10');
+    const p11=document.getElementById('y11');
+    const p12=document.getElementById('y12');
+    const p13=document.getElementById('y13');
+    const p14=document.getElementById('y14');
+    const p15=document.getElementById('y15');
+
+    //
+    var flag=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    const cart=document.getElementById('cart');
+    const newPrice=document.getElementById('price')
+    console.log(cart)
+    var price=0;
+    p1.onclick= function(){
+      console.log("hm daude");
+      
+      if(flag[0]==0)
+      {
+        price+=1200000;
+        p1.style.opacity=0.5;
+        flag[0]=1;
+      }
+      else{
+        price-=1200000;
+        p1.style.opacity=1;
+        flag[0]=0;
+      }
+     newPrice.innerHTML=price;
+};
+    p2.onclick=function(){
+      if(flag[1]==0)
+      {
+        price+=3000000;
+        p2.style.opacity=0.5;
+        flag[1]=1;
+      }
+      else{
+        price-=3000000;
+        p2.style.opacity=1;
+        flag[1]=0;
+      }
+      newPrice.innerHTML=price;
+};
+    p3.addEventListener("click", function() {
+      console.log("hm bhi daude")
+      if(flag[2]==0)
+      {
+        price+=1700000;
+        p3.style.opacity=0.5;
+        flag[2]=1;
+      }
+      else{
+        price-=1700000;
+        p3.style.opacity=1;
+        flag[2]=0;
+      }
+      newPrice.innerHTML=price;
+});
+    p4.addEventListener("click", function() {
+      if(flag[3]==0)
+      {
+        price+=1000000;
+        p4.style.opacity=0.5;
+        flag[3]=1;
+      }
+      else{
+        price-=1000000;
+        p4.style.opacity=1;
+        flag[3]=0;
+      }
+      newPrice.innerHTML=price;
+});
+    p5.addEventListener("click", function() {
+      if(flag[4]==0)
+      {
+        price+=2800000;
+        p5.style.opacity=0.5;
+        flag[4]=1;
+      }
+      else{
+        price-=2800000;
+        p5.style.opacity=1;
+        flag[4]=0;
+      }
+      newPrice.innerHTML=price;
+});
+    p6.addEventListener("click", function() {
+      if(flag[5]==0)
+      {
+        price+=2600000;
+        p6.style.opacity=0.5;
+        flag[5]=1;
+      }
+      else{
+        price-=2600000;
+        p6.style.opacity=1;
+        flag[5]=0;
+      }
+      newPrice.innerHTML=price;
+});
+    p7.addEventListener("click", function() {
+      if(flag[6]==0)
+      {
+        price+=4000000;
+        p7.style.opacity=0.5;
+        flag[6]=1;
+      }
+      else{
+        price-=4000000;
+        p7.style.opacity=1;
+        flag[6]=0;
+      }
+      newPrice.innerHTML=price;
+});
+    p8.addEventListener("click", function() {
+      if(flag[7]==0)
+      {
+        price+=7000000;
+        p8.style.opacity=0.5;
+        flag[7]=1;
+      }
+      else{
+        price-=7000000;
+        p8.style.opacity=1;
+        flag[7]=0;
+      }
+      newPrice.innerHTML=price;
+});
+    p9.addEventListener("click", function() {
+      if(flag[8]==0)
+      {
+        price+=1000000;
+        p9.style.opacity=0.5;
+        flag[8]=1;
+      }
+      else{
+        price-=1000000;
+        p9.style.opacity=1;
+        flag[8]=0;
+      }
+      newPrice.innerHTML=price;
+});
+    p10.addEventListener("click", function() {
+      if(flag[9]==0)
+      {
+        price+=9000000;
+        p10.style.opacity=0.5;
+        flag[9]=1;
+      }
+      else{
+        price-=9000000;
+        p10.style.opacity=1;
+        flag[9]=0;
+      }
+      newPrice.innerHTML=price;
+});
+    p11.addEventListener("click", function() {
+      if(flag[10]==0)
+      {
+        price+=6000000;
+        p11.style.opacity=0.5;
+        flag[10]=1;
+      }
+      else{
+        price-=6000000;
+        p11.style.opacity=1;
+        flag[10]=0;
+      }
+      newPrice.innerHTML=price;
+});
+    p12.addEventListener("click", function() {
+      if(flag[11]==0)
+      {
+        price+=800000;
+        p12.style.opacity=0.5;
+        flag[11]=1;
+      }
+      else{
+        price-=800000;
+        p12.style.opacity=1;
+        flag[11]=0;
+      }
+      newPrice.innerHTML=price;
+});
+    p13.addEventListener("click", function() {
+      if(flag[12]==0)
+      {
+        price+=600000;
+        p13.style.opacity=0.5;
+        flag[12]=1;
+      }
+      else{
+        price-=600000;
+        p13.style.opacity=1;
+        flag[12]=0;
+      }
+      newPrice.innerHTML=price;
+});
+    p14.addEventListener("click", function() {
+      if(flag[13]==0)
+      {
+        price+=800000;
+        p14.style.opacity=0.5;
+        flag[13]=1;
+      }
+      else{
+        price-=800000;
+        p14.style.opacity=1;
+        flag[13]=0;
+      }
+      newPrice.innerHTML=price;
+});
+    p15.addEventListener("click", function() {
+      if(flag[14]==0)
+      {
+        price+=500000;
+        p15.style.opacity=0.5;
+        flag[14]=1;
+      }
+      else{
+        price-=500000;
+        p15.style.opacity=1;
+        flag[14]=0;
+      }
+      newPrice.innerHTML=price;
+});
+//
+</script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="{{url_for('static',filename='script/like.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  </div>
+</div>
+</body>
+</html>
